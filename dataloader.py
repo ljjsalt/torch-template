@@ -22,7 +22,7 @@ def get_dataloaders(args):
         train_ds = torchvision.datasets.SVHN('./datasets', split='train', transform=train_transform, download=True)
         test_ds = torchvision.datasets.SVHN('./datasets', split='test', transform=test_transform, download=True)
         args.num_classes = 10
-    elif args.dataset == "imnet": # ImageNet 2012
+    elif args.dataset == "imnet": # ILSVRC2012 TODO
         train_ds = torchvision.datasets.ImageNet('./datasets', split='train', transform=train_transform, download=True)
         test_ds = torchvision.datasets.ImageNet('./datasets', split='val', transform=test_transform, download=True)
         args.num_classes = 1000

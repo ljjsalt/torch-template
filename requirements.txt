@@ -1,7 +1,6 @@
-torch==1.10.0
+torch
 torchvision
 numpy
 wandb
-einops
 torchsummary
 scipy

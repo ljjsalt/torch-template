@@ -19,6 +19,7 @@ parser.add_argument('--epochs', type=int, default=300)
 # parser.add_argument('--precision', type=int, default=16)
 
 parser.add_argument('--patch-size', type=int, default=4)
+
 parser.add_argument('--hidden-size', type=int, default=128)
 parser.add_argument('--hidden-c', type=int, default=512)
 parser.add_argument('--hidden-s', type=int, default=64)
@@ -54,33 +55,8 @@ torch.random.manual_seed(args.seed)
 
 experiment_name = f"{args.model}_{args.dataset}_{args.optimizer}_{args.scheduler}"
 
-if args.autoaugment:
-    experiment_name += "_aa"
-if args.clip_grad:
-    experiment_name += f"_cg{args.clip_grad}"
-if args.cutmix_prob>0.:
-    experiment_name += f'_cm'
-
-if args.model == 'mixer':
-    experiment_name += "_l" + str(args.num_layers)
-    if args.is_cls_token:
-        experiment_name += f"_cls"
-elif args.model == 'qmixer':
-    experiment_name += "_l" + str(args.num_layers)
-    experiment_name += "_g" + str(args.groups)
-    if args.is_cls_token:
-        experiment_name += f"_cls"
-
-elif args.model == 'squeeze_net':
-    experiment_name += f"_{args.act}"
-elif args.model == 'alex_net':
-    experiment_name += f"_{args.act}"
-elif args.model == 'resnet18':
-    experiment_name += f"_{args.act}"
-elif args.model == 'resnet34':
-    experiment_name += f"_{args.act}"
-
-
+# experiment name
+# experiment_name += ...
 
 if __name__=='__main__':
     with wandb.init(project=args.model, config=args, name=experiment_name):

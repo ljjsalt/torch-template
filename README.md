@@ -1,6 +1,6 @@
-# QMLP
+# REPO_NAME
 
-- PyTorch implementation of **Mixer-nano** with quadratic activations.
+- PyTorch implementation of XXX
 
 ## 0. TODO
 
